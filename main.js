@@ -10,12 +10,12 @@ define(function (require, exports, module) {
 		FileSystem              = brackets.getModule("filesystem/FileSystem"),
 		ProjectManager          = brackets.getModule("project/ProjectManager");
 
-	require("csslint/csslint");
+	require("bootlint/bootlint");
 
 	var _configFileName = ".csslintrc",
 		config = {};
 
-	function cssLinter(text, fullPath) {
+	function bootLinter(text, fullPath) {
 		var results;
 
 		// Merge default CSSLint ruleset with the custom .csslintrc config
@@ -130,9 +130,9 @@ define(function (require, exports, module) {
 
     AppInit.appReady(function () {
 
-        CodeInspection.register("css", {
-            name: "CSSLint",
-            scanFile: cssLinter
+        CodeInspection.register("html", {
+            name: "BootLint",
+            scanFile: bootLinter
         });
 
         $(DocumentManager)
